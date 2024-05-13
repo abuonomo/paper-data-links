@@ -5,8 +5,8 @@ from astropy import units as u
 
 # Define the observation period for MDI, EIT, and LASCO as mentioned in the context
 mdi_time_range = a.Time('1996-05-01', '2011-04-12')
-eit_time_range = a.Time('1996-01-01', 'ongoing')
-lasco_time_range = a.Time('1995-12-08', 'ongoing')
+eit_time_range = a.Time('1996-01-01', '2011-04-20')
+lasco_time_range = a.Time('1995-12-08', '2011-04-20')
 
 # MDI: Observing the solar photosphere
 mdi_query = Fido.search(mdi_time_range, a.Instrument("MDI"), a.Wavelength(6768 * u.Angstrom))
