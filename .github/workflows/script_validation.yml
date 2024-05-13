@@ -1,0 +1,67 @@
+name: Script Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'papers/**/download_script.py'
+
+jobs:
+  validate_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Fetches all history for all tags and branches
+
+    - name: Identify changed script
+      run: |
+        echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
+        echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
+        DIFF_OUTPUT=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+        echo "Diff Output: $DIFF_OUTPUT"
+        FILE_PATH=$(echo "$DIFF_OUTPUT" | grep 'papers/.*/download_script.py')
+        echo "Filtered Path: $FILE_PATH"
+        if [ -z "$FILE_PATH" ]; then
+          echo "No script changes detected."
+          exit 0  # Exit if no changes are detected
+        else
+          echo "Changed script file path: $FILE_PATH"
+          echo "FILE_PATH=${FILE_PATH}" >> $GITHUB_ENV
+        fi
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit
+        pip install sunpy[all]
+        pip install lxml
+        pip install astropy
+        pip install requests
+        pip install beautifulsoup4
+
+    - name: Run bandit on the changed script
+      if: env.FILE_PATH
+      run: |
+        bandit -r $FILE_PATH -ll -ii
+        if [ $? -ne 0 ]; then
+          echo "Security issues found by Bandit."
+          exit 1
+        fi
+
+    - name: Execute the changed script
+      if: env.FILE_PATH
+      run: |
+        python $FILE_PATH
+
+    - name: Upload script output
+      uses: actions/upload-artifact@v2
+      with:
+        name: script-output
+        path: script_output.txt
