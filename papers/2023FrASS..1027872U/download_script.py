@@ -12,7 +12,7 @@ lasco_detector_c2 = a.Detector("C2")  # Assuming C2 is the relevant detector for
 # SECCHI on STEREO: Observations of CMEs and coronal dynamics
 secchi_time_range_2010 = a.Time('2010-08-01T00:00:00', '2010-08-01T23:59:59')
 secchi_instrument = a.Instrument("SECCHI")
-secchi_detector_hi1 = a.Detector("HI1")  # Assuming HI1 is relevant based on context
+secchi_detector_hi1 = a.Detector("COR1")
 
 # Constructing the queries
 lasco_query_2001 = Fido.search(lasco_time_range_2001, lasco_instrument, lasco_detector_c2)
