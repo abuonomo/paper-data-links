@@ -36,6 +36,15 @@ jobs:
       with:
         python-version: 3.x
 
+    - name: Check if the script is valid Python
+      if: env.FILE_PATH
+      run: |
+        python -m py_compile $FILE_PATH
+        if [ $? -ne 0 ]; then
+          echo "Syntax errors found in the script."
+          exit 1
+        fi
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
