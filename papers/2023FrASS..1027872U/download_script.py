@@ -24,7 +24,7 @@ print("Query for LASCO C2 Detector Data on 2001-01-07:")
 print(lasco_query_2001)
 print("Query for LASCO C2 Detector Data on 2022-08-29:")
 print(lasco_query_2022)
-print("Query for SECCHI HI1 Detector Data on 2010-08-01:")
+print("Query for SECCHI COR1 Detector Data on 2010-08-01:")
 print(secchi_query_2010)
 
 # Uncomment the lines below to download the data
