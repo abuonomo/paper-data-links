@@ -16,29 +16,42 @@ lasco_clear_wavelength = a.Wavelength(530 * u.nm, 840 * u.nm)
 lasco_blue_wavelength = a.Wavelength(450 * u.nm, 500 * u.nm)  # Assuming range for blue filter
 
 # Instruments
-stereo_a_hi1 = a.Instrument("HI1")
-stereo_b_hi1 = a.Instrument("HI1")
-lasco_c2 = a.Instrument("C2")
-lasco_c3 = a.Instrument("C3")
+secchi = a.Instrument("SECCHI")
+hi1_detector = a.Detector("HI1")
+lasco = a.Instrument("LASCO")
+c2 = a.Detector("C2")
+c3 = a.Detector("C3")
 
 # Perform the queries
-stereo_a_query = Fido.search(stereo_time_range, stereo_a_hi1, stereo_wavelength)
-stereo_b_query = Fido.search(stereo_time_range, stereo_b_hi1, stereo_wavelength)
-lasco_c2_query = Fido.search(lasco_time_range, lasco_c2, lasco_orange_wavelength, lasco_clear_wavelength)
-lasco_c3_query = Fido.search(lasco_time_range, lasco_c3, lasco_orange_wavelength, lasco_clear_wavelength, lasco_blue_wavelength)
+stereo_query = Fido.search(stereo_time_range, secchi, hi1_detector, stereo_wavelength)
+
+lasco_c2_query_orange = Fido.search(lasco_time_range, lasco, c2, lasco_orange_wavelength)
+lasco_c2_query_clear = Fido.search(lasco_time_range, lasco, c2, lasco_clear_wavelength)
+
+lasco_c3_query_orange = Fido.search(lasco_time_range, lasco, c3, lasco_orange_wavelength)
+lasco_c3_query_clear = Fido.search(lasco_time_range, lasco, c3, lasco_clear_wavelength)
+lasco_c3_query_blue = Fido.search(lasco_time_range, lasco, c3, lasco_blue_wavelength)
 
 # Display the query results
-print("Query for STEREO-A HI1 observations:")
-print(stereo_a_query)
-print("Query for STEREO-B HI1 observations:")
-print(stereo_b_query)
-print("Query for SOHO LASCO C2 observations:")
-print(lasco_c2_query)
-print("Query for SOHO LASCO C3 observations:")
-print(lasco_c3_query)
+print("Query for STEREO-A and STEREO-B HI1 observations:")
+print(stereo_query)
+
+print("Query for SOHO LASCO C2 Orange observations:")
+print(lasco_c2_query_orange)
+print("Query for SOHO LASCO C2 Clear observations:")
+print(lasco_c2_query_clear)
+
+print("Query for SOHO LASCO C3 Orange observations:")
+print(lasco_c3_query_orange)
+print("Query for SOHO LASCO C3 Clear observations:")
+print(lasco_c3_query_clear)
+print("Query for SOHO LASCO C3 Blue observations:")
+print(lasco_c3_query_blue)
 
 # Uncomment the lines below to download the data
-# stereo_a_files = Fido.fetch(stereo_a_query)
-# stereo_b_files = Fido.fetch(stereo_b_query)
-# lasco_c2_files = Fido.fetch(lasco_c2_query)
-# lasco_c3_files = Fido.fetch(lasco_c3_query)
+# stereo_files = Fido.fetch(stereo_query)
+# lasco_c2_orange_files = Fido.fetch(lasco_c2_query_orange)
+# lasco_c2_clear_files = Fido.fetch(lasco_c2_query_clear)
+# lasco_c3_orange_files = Fido.fetch(lasco_c3_query_orange)
+# lasco_c3_clear_files = Fido.fetch(lasco_c3_query_clear)
+# lasco_c3_blue_files = Fido.fetch(lasco_c3_query_blue)
