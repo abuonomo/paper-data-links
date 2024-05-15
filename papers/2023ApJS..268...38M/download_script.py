@@ -15,9 +15,10 @@ eit_query = Fido.search(time_range, a.Instrument("EIT"), a.Wavelength(171*u.angs
 aia_query = Fido.search(time_range, a.Instrument("AIA"), a.Wavelength(171*u.angstrom, 304*u.angstrom))
 
 # STEREO/SECCHI (COR-1, COR-2, EUVI): Multi-viewpoint observation of CMEs and their source regions
-cor1_query = Fido.search(time_range, a.Instrument("COR1"))
-cor2_query = Fido.search(time_range, a.Instrument("COR2"))
-euvi_query = Fido.search(time_range, a.Instrument("EUVI"))
+secchi = a.Instrument("SECCHI")
+cor1_query = Fido.search(time_range, secchi, a.Detector("COR1"))
+cor2_query = Fido.search(time_range, secchi, a.Detector("COR2"))
+euvi_query = Fido.search(time_range, secchi, a.Detector("EUVI"))
 
 # Display the query results for each instrument
 print("Query for SOHO/EIT data:")
