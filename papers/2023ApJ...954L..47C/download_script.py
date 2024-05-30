@@ -26,8 +26,7 @@ secchi_query = Fido.search(secchi_time_range, a.Instrument("SECCHI"))
 
 rhessi_query = Fido.search(
     rhessi_time_range, 
-    a.Instrument("RHESSI"), 
-    a.Wavelength("<12 keV")
+    a.Instrument("RHESSI"),
 )
 
 lasco_query = Fido.search(lasco_time_range, a.Instrument("LASCO"))
