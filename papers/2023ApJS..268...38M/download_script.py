@@ -4,6 +4,9 @@ from sunpy.net import Fido, attrs as a
 from astropy import units as u
 
 # Define the observation period as mentioned in the context
+# Warning: BROAD TIME RANGE.
+# This query may not return results due to potentially fetching too many files.
+# Consider using a shorter time range (e.g., a day or a week) to see results from providers.
 start_date = '1998-01-01'
 end_date = '2017-12-31'
 time_range = a.Time(start_date, end_date)
