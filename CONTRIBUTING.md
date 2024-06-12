@@ -86,10 +86,16 @@ Here is an example `metadata.json` file. It must contain the bibcode for the rel
 
 ```
 {
-  "bibcode": "2022A&A...659A.187W",
+  "bibcode": "2023ApJ...954L..47C",
   "vso_source_keys": {
-    "ACE/EPAM": "Advanced Composition Explorer / Electron, Proton, and Alpha Monitor",
-    "SoHO/ERNE": "Solar and Heliospheric Observatory / Energetic and Relativistic Nuclei and Electron"
+    "keys": [
+      "SDO",
+      "STEREO_A",
+      "RHESSI",
+      "SOHO",
+      "GOES-12",
+      "HMI"
+    ]
   }
 }
 ```
