@@ -12,10 +12,10 @@ end_date = '2017-12-31'
 time_range = a.Time(start_date, end_date)
 
 # SOHO/EIT: Used for initial identification of CME source regions
-eit_query = Fido.search(time_range, a.Instrument("EIT"), a.Wavelength(171*u.angstrom, 304*u.angstrom))
+eit_query = Fido.search(time_range, a.Instrument("EIT"))
 
 # SDO/AIA: Provides high-resolution images for detailed analysis of CME source regions
-aia_query = Fido.search(time_range, a.Instrument("AIA"), a.Wavelength(171*u.angstrom, 304*u.angstrom))
+aia_query = Fido.search(time_range, a.Instrument("AIA"))
 
 # STEREO/SECCHI (COR-1, COR-2, EUVI): Multi-viewpoint observation of CMEs and their source regions
 secchi = a.Instrument("SECCHI")
