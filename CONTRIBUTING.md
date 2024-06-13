@@ -68,7 +68,12 @@ We categorize the actions one can take with a new PR as follows:
 
 3. **Handling Broad Time Ranges:**
     - If the script does not reliably run due to broad time ranges, include a comment in the code explaining why results are unlikely to be returned.
-    - Example comment: `// Note: This script may not return results due to broad time ranges. Check VSO Health Report for latest assessment on connectivity.`
+    - Example comment:
+    ```
+    # WARNING: BROAD TIME RANGE
+    # This query may not return results due to fetching too many files.
+    # Consider using a shorter time range (e.g., a day or a week) to see results from providers.
+    ```
 
 4. **Review Papers:**
     - Generally, ignore scripts for review papers unless they produce a correct script without extensive errors.
