@@ -18,7 +18,13 @@ hmi_wavelengths = a.Wavelength(6173 * u.angstrom)  # Typical HMI wavelength
 
 # LASCO instrument details for three specific eruption times
 lasco_instrument = a.Instrument("LASCO")
-lasco_times = [a.Time('2012-03-07T01:30:00'), a.Time('2012-03-09T04:26:00'), a.Time('2012-03-10T18:00:00')]
+# Choose short time ranges
+lasco_times = [
+    a.Time('2012-03-07T01:30:00', '2012-03-07T01:35:00'), 
+    a.Time('2012-03-09T04:26:00', '2012-03-09T04:31:00'), 
+    a.Time('2012-03-10T18:00:00', '2012-03-10T18:05:00')
+]
+
 
 # Construct queries for AIA and HMI
 aia_query = Fido.search(aia_hmi_time_range, aia_instrument, aia_wavelengths)
