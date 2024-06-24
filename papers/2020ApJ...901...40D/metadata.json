@@ -1,0 +1,14 @@
+{
+  "bibcode": "2020ApJ...901...40D",
+  "vso_source_keys": {
+    "Source Keys Json": [
+      "BBSO",
+      "GOES16",
+      "HINODE",
+      "SDO",
+      "SOHO",
+      "STEREO_A",
+      "STEREO_B"
+    ]
+  }
+}
