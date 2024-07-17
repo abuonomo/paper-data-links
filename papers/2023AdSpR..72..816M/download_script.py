@@ -4,25 +4,27 @@ from sunpy.net import Fido, attrs as a
 from astropy import units as u
 
 # Define the observation period as per the study context
+# WARNING: BROAD TIME RANGE
+# This query may not return results due to fetching too many files.
+# Consider using a shorter time range (e.g., a day or a week) to see results from providers.
 start_date = '2010-01-01'
 end_date = '2017-12-31'
 time_range = a.Time(start_date, end_date)
 
-# Frequency range for type II radio bursts with band splitting
-frequency_range = a.Wavelength(20 * u.MHz, 200 * u.MHz)
+# SOHO/LASCO for CME observations
+lasco_instrument = a.Instrument("LASCO")
+cme_query = Fido.search(time_range, lasco_instrument)
 
-# Note: Assuming CALLISTO data is accessible, if not, manual data retrieval might be necessary.
-# This is a placeholder for the instrument and might need to be adjusted based on actual data availability.
-# CALLISTO is not listed in the provided VSO interface, indicating a need for manual data access or use of another interface.
-callisto_instrument = a.Instrument("CALLISTO")  # This is hypothetical and likely not valid in SunPy's Fido.
+# GOES X-ray for solar flare observations
+goes_instrument = a.Instrument("GOES")
+xray_query = Fido.search(time_range, goes_instrument, a.Physobs.intensity)
 
-# Construct the query
-# Since CALLISTO might not be available in Fido, this serves as a conceptual example.
-radio_burst_query = Fido.search(time_range, callisto_instrument, frequency_range)
+print("Query for SOHO/LASCO CME observations (2010-2017):")
+print(cme_query)
 
-# Display the query results
-print("Query for Type II radio bursts with band splitting (2010-2017):")
-print(radio_burst_query)
+print("Query for GOES X-ray solar flare observations (2010-2017):")
+print(xray_query)
 
-# Uncomment the line below to download the data if CALLISTO is available through Fido or another method is established.
-# radio_burst_files = Fido.fetch(radio_burst_query)
+# Uncomment the lines below to download the data if the instruments are available through Fido or another method is established.
+# cme_files = Fido.fetch(cme_query)
+# xray_files = Fido.fetch(xray_query)
