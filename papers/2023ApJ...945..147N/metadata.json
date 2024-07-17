@@ -3,6 +3,7 @@
   "vso_source_keys": {
     "SDO": "Solar Dynamics Observatory",
     "SORCE": "Solar Radiation and Climate Experiment",
-    "TIMED": "Thermosphere Ionosphere Mesosphere Energetics Dynamics"
+    "TIMED": "Thermosphere Ionosphere Mesosphere Energetics Dynamics",
+    "SOHO": "Solar and Heliospheric Observatory"
   }
 }
