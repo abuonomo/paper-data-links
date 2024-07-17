@@ -7,11 +7,17 @@ eve_instrument = a.Instrument("EVE")
 eve_query = Fido.search(eve_time_range, eve_instrument)
 
 # SDO/HMI: Full-disk magnetograms starting from May 2010
+# WARNING: BROAD TIME RANGE
+# This query may not return results due to fetching too many files.
+# Consider using a shorter time range (e.g., a day or a week) to see results from providers.
 hmi_time_range = a.Time('2010-05-01', '2020-02-29')
 hmi_instrument = a.Instrument("HMI")
 hmi_query = Fido.search(hmi_time_range, hmi_instrument)
 
 # SoHO/MDI: Full-disk magnetograms until April 12, 2011
+# WARNING: BROAD TIME RANGE
+# This query may not return results due to fetching too many files.
+# Consider using a shorter time range (e.g., a day or a week) to see results from providers.
 mdi_time_range = a.Time('1996-01-01', '2011-04-12')
 mdi_instrument = a.Instrument("MDI")
 mdi_query = Fido.search(mdi_time_range, mdi_instrument)
