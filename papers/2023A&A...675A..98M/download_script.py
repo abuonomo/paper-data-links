@@ -3,33 +3,47 @@
 from sunpy.net import Fido, attrs as a
 from astropy import units as u
 
-# Define a general observation date
-observation_date = "YYYY-MM-DD"  # Replace YYYY-MM-DD with the specific date of observation
-
-# Nançay Radioheliograph (NRH) query for radio emission at 150 MHz and 173 MHz
-nrh_time_range = a.Time(observation_date + "T00:00:00", observation_date + "T23:59:59")
-nrh_frequencies = [150 * u.MHz, 173 * u.MHz]
-nrh_query = Fido.search(nrh_time_range, a.Instrument("NRH"), a.Wavelength(nrh_frequencies[0]) | a.Wavelength(nrh_frequencies[1]))
+# Define the observation date
+observation_date = "2013-10-25"  # Replace YYYY-MM-DD with the specific date of observation
 
 # Solar Dynamics Observatory (SDO) query for EUV images
 sdo_time_range = a.Time(observation_date + "T00:00:00", observation_date + "T23:59:59")
 sdo_wavelengths = [211 * u.Angstrom]  # AIA 211 Å channel
 sdo_query = Fido.search(sdo_time_range, a.Instrument("AIA"), a.Wavelength(sdo_wavelengths[0]))
 
-# Solar Terrestrial Relations Observatory (STEREO) query for EUV and white-light images
-stereo_time_range = a.Time(observationation_date + "T00:00:00", observation_date + "T23:59:59")
-stereo_wavelengths = [195 * u.Angstrom]  # EUVI 195 Å channel
-stereo_query = Fido.search(stereo_time_range, a.Instrument("SECCHI"), a.Wavelength(stereo_wavelengths[0]))
+# Solar Terrestrial Relations Observatory (STEREO) query for EUVI images
+stereo_time_range = a.Time(observation_date + "T00:00:00", observation_date + "T23:59:59")
+stereo_wavelengths_euvi = [195 * u.Angstrom]  # EUVI 195 Å channel
+stereo_query_euvi = Fido.search(stereo_time_range, a.Instrument("SECCHI"), a.Detector("EUVI"), a.Wavelength(stereo_wavelengths_euvi[0]))
+
+# Solar Terrestrial Relations Observatory (STEREO) query for white-light images (COR1)
+stereo_query_cor1 = Fido.search(stereo_time_range, a.Instrument("SECCHI"), a.Detector("COR1"))
+
+# Solar Terrestrial Relations Observatory (STEREO) query for white-light images (COR2)
+stereo_query_cor2 = Fido.search(stereo_time_range, a.Instrument("SECCHI"), a.Detector("COR2"))
 
 # Print the query results
-print("Query for NRH radio emission at 150 MHz and 173 MHz:")
-print(nrh_query)
 print("Query for SDO EUV images at 211 Å:")
 print(sdo_query)
-print("Query for STEREO EUV images at 195 Å:")
-print(stereo_query)
+print("Query for STEREO EUVI images at 195 Å:")
+print(stereo_query_euvi)
+print("Query for STEREO white-light images (COR1):")
+print(stereo_query_cor1)
+print("Query for STEREO white-light images (COR2):")
+print(stereo_query_cor2)
 
-# Uncomment the lines below to download the data
-# nrh_files = Fido.fetch(nrh_query)
-# sdo_files = Fido.fetch(sdo_query)
-# stereo_files = Fido.fetch(stereo_query)
+# Download the data
+sdo_files = Fido.fetch(sdo_query)
+stereo_files_euvi = Fido.fetch(stereo_query_euvi)
+stereo_files_cor1 = Fido.fetch(stereo_query_cor1)
+stereo_files_cor2 = Fido.fetch(stereo_query_cor2)
+
+# Print the paths to the downloaded files
+print("SDO files downloaded:")
+print(sdo_files)
+print("STEREO EUVI files downloaded:")
+print(stereo_files_euvi)
+print("STEREO COR1 files downloaded:")
+print(stereo_files_cor1)
+print("STEREO COR2 files downloaded:")
+print(stereo_files_cor2)
