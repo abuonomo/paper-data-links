@@ -1,0 +1,11 @@
+{
+  "bibcode": "2023AdSpR..72..844M",
+  "vso_source_keys": {
+    "SDO": "Solar Dynamics Observatory",
+    "SOHO": "Solar and Heliospheric Observatory",
+    "GOES16": "Geostationary Operational Environmental Satellite (GOES-R) Series 16",
+    "GOES17": "Geostationary Operational Environmental Satellite (GOES-R) Series 17",
+    "STEREO_A": "Solar TErrestrial RElations Observatory - Ahead",
+    "STEREO_B": "Solar TErrestrial RElations Observatory - Behind"
+  }
+}
