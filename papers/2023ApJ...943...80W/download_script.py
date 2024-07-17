@@ -4,21 +4,45 @@ from sunpy.net import Fido, attrs as a
 from astropy import units as u
 
 # Define the observation period as per the context
+# WARNING: BROAD TIME RANGE
+# This query may not return results due to fetching too many files.
+# Consider using a shorter time range (e.g., a day or a week) to see results from providers.
 start_date = '2010-01-01'
 end_date = '2015-12-31'
 time_range = a.Time(start_date, end_date)
 
-# Define the instrument and the type of data we are interested in
-instrument = a.Instrument("HMI")
-physobs = a.Physobs("vector_magnetic_field")
-wavelength = a.Wavelength(6173 * u.angstrom, 6174 * u.angstrom)  # Approximate operational range
+# Define the HMI instrument and the type of data we are interested in
+hmi_instrument = a.Instrument("HMI")
+hmi_physobs = a.Physobs("vector_magnetic_field")
+hmi_wavelength = a.Wavelength(6173 * u.angstrom, 6174 * u.angstrom)  # Approximate operational range
 
-# Construct the query
-query = Fido.search(time_range, instrument, physobs, wavelength)
+# Define the AIA instrument and the type of data we are interested in
+aia_instrument = a.Instrument("AIA")
+aia_wavelengths = [
+    a.Wavelength(94 * u.angstrom),
+    a.Wavelength(131 * u.angstrom),
+    a.Wavelength(171 * u.angstrom),
+    a.Wavelength(193 * u.angstrom),
+    a.Wavelength(211 * u.angstrom),
+    a.Wavelength(304 * u.angstrom),
+    a.Wavelength(335 * u.angstrom)
+]
 
-# Display the query results
+# Construct the HMI query
+hmi_query = Fido.search(time_range, hmi_instrument, hmi_physobs, hmi_wavelength)
+
+# Construct the AIA query for each wavelength
+aia_queries = [Fido.search(time_range, aia_instrument, a.Physobs("intensity"), wavelength) for wavelength in aia_wavelengths]
+
+# Display the HMI query results
 print("Query for HMI vector magnetic field data:")
-print(query)
+print(hmi_query)
 
-# Uncomment the line below to download the data
-# files = Fido.fetch(query)
+# Display the AIA query results
+for idx, aia_query in enumerate(aia_queries):
+    print(f"Query for AIA data at wavelength {aia_wavelengths[idx].min} to {aia_wavelengths[idx].max}:")
+    print(aia_query)
+
+# Uncomment the lines below to download the data
+# hmi_files = Fido.fetch(hmi_query)
+# aia_files = [Fido.fetch(aia_query) for aia_query in aia_queries]
