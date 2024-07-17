@@ -1,6 +1,9 @@
 {
   "bibcode": "2023A&A...675A..27J",
   "vso_source_keys": {
-    "SO": "Solar Orbiter"
+    "SO": "Solar Orbiter",
+    "SOHO": "Solar and Heliospheric Observatory",
+    "STEREO_A": "Solar TErrestrial RElations Observatory - Ahead",
+    "SDO": "Solar Dynamics Observatory"
   }
 }
