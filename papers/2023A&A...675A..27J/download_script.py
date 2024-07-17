@@ -6,22 +6,58 @@ from astropy import units as u
 # Define the observation date for the SEP event
 event_date = '2021-10-09'
 
-# EPD on Solar Orbiter: Observations of energetic particles
-epd_instrument = a.Instrument("EPD")
-epd_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
-epd_query = Fido.search(epd_time_range, epd_instrument)
+# HET on STEREO-A: Observations of high-energy particles
+stereo_a_source = a.Source("STEREO_A")
+impact_instrument = a.Instrument("IMPACT")
+het_detector = a.Detector("HET")
+het_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
+het_query = Fido.search(het_time_range, stereo_a_source, impact_instrument, het_detector)
 
-# STIX on Solar Orbiter: Observation of hard X-ray emissions
-stix_instrument = a.Instrument("STIX")
-stix_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
-stix_query = Fido.search(stix_time_range, stix_instrument)
+# SEPT on STEREO-A: Observations of energetic particles
+sept_detector = a.Detector("SEPT")
+sept_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
+sept_query = Fido.search(sept_time_range, stereo_a_source, impact_instrument, sept_detector)
 
-# Display the query results for EPD and STIX instruments
-print("Query for EPD observations on Solar Orbiter:")
-print(epd_query)
-print("Query for STIX observations on Solar Orbiter:")
-print(stix_query)
+# SWAVES on STEREO-A: Observations of radio emissions
+swaves_instrument = a.Instrument("SWAVES")
+swaves_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
+swaves_query = Fido.search(swaves_time_range, swaves_instrument)
+
+# AIA on SDO: Observations of solar atmosphere in EUV range
+aia_instrument = a.Instrument("AIA")
+aia_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
+aia_query = Fido.search(aia_time_range, aia_instrument)
+
+# LASCO on SOHO: Observations of CME in white light
+lasco_instrument = a.Instrument("LASCO")
+lasco_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
+lasco_query = Fido.search(lasco_time_range, lasco_instrument)
+
+# GOES: Observations of soft X-ray emissions
+goes_instrument = a.Instrument("GOES")
+goes_time_range = a.Time(event_date + "T00:00:00", event_date + "T23:59:59")
+goes_query = Fido.search(goes_time_range, goes_instrument)
+
+# Display the query results for all instruments
+print("Query for HET observations on STEREO-A:")
+print(het_query)
+print("Query for SEPT observations on STEREO-A:")
+print(sept_query)
+print("Query for SWAVES observations on STEREO-A:")
+print(swaves_query)
+print("Query for AIA observations on SDO:")
+print(aia_query)
+print("Query for LASCO observations on SOHO:")
+print(lasco_query)
+print("Query for GOES observations:")
+print(goes_query)
 
 # Uncomment the lines below to download the data
-# epd_files = Fido.fetch(epd_query)
-# stix_files = Fido.fetch(stix_query)
+# het_files = Fido.fetch(het_query)
+# sept_files = Fido.fetch(sept_query)
+# swaves_files = Fido.fetch(swaves_query)
+# aia_files = Fido.fetch(aia_query)
+# lasco_files = Fido.fetch(lasco_query)
+# goes_files = Fido.fetch(goes_query)
+
+print("Done")
