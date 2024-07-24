@@ -11,50 +11,88 @@ cme1_lasco_end = datetime(2014, 9, 9, 1, 30)
 
 # Time range for CME2 observed by LASCO
 cme2_lasco_start = datetime(2014, 9, 10, 17, 48)
-cme2_lasco_end = datetime(2014, 9, 12, 0, 0)
+cme2_lasco_end = datetime(2014, 9, 12, 23, 59)
 
 # Time range for CME1 observed by SECCHI
 cme1_secchi_start = datetime(2014, 9, 9, 0, 24)
-cme1_secchi_end = datetime(2014, 9, 9, 0, 24)  # Single observation
+cme1_secchi_end = datetime(2014, 9, 9, 23, 59)
 
 # Time range for CME2 observed by SECCHI
 cme2_secchi_start = datetime(2014, 9, 10, 18, 24)
-cme2_secchi_end = datetime(2014, 9, 10, 18, 24)  # Single observation
+cme2_secchi_end = datetime(2014, 9, 12, 23, 59)
+
+# Time range for CME1 observed by AIA
+cme1_aia_start = datetime(2014, 9, 8, 0, 0)
+cme1_aia_end = datetime(2014, 9, 9, 1, 30)
+
+# Time range for CME2 observed by AIA
+cme2_aia_start = datetime(2014, 9, 10, 0, 0)
+cme2_aia_end = datetime(2014, 9, 10, 23, 59)
+
+# Time range for CME1 observed by HMI
+cme1_hmi_start = datetime(2014, 9, 8, 0, 0)
+cme1_hmi_end = datetime(2014, 9, 9, 1, 30)
+
+# Time range for CME2 observed by HMI
+cme2_hmi_start = datetime(2014, 9, 10, 0, 0)
+cme2_hmi_end = datetime(2014, 9, 10, 23, 59)
 
 # Create queries for LASCO observations
 lasco_cme1_query = Fido.search(a.Time(cme1_lasco_start, cme1_lasco_end), a.Instrument('LASCO'))
 lasco_cme2_query = Fido.search(a.Time(cme2_lasco_start, cme2_lasco_end), a.Instrument('LASCO'))
 
 # Create queries for SECCHI observations
-# Note: SECCHI should be queried with specific detectors, not as an instrument
-secchi_cme1_query = Fido.search(a.Time(cme1_secchi_start, cme1_secchi_end), a.Detector('COR1'))  # Change made here
-secchi_cme2_query = Fido.search(a.Time(cme2_secchi_start, cme2_secchi_end), a.Detector('COR1'))  # Change made here
+secchi_cme1_query = Fido.search(a.Time(cme1_secchi_start, cme1_secchi_end), a.Detector('COR2'))
+secchi_cme2_query = Fido.search(a.Time(cme2_secchi_start, cme2_secchi_end), a.Detector('COR2'))
+
+# Create queries for AIA observations
+aia_cme1_query = Fido.search(a.Time(cme1_aia_start, cme1_aia_end), a.Instrument('AIA'), a.Wavelength(131, 'angstrom'))
+aia_cme2_query = Fido.search(a.Time(cme2_aia_start, cme2_aia_end), a.Instrument('AIA'), a.Wavelength(131, 'angstrom'))
+
+# Create queries for HMI observations
+hmi_cme1_query = Fido.search(a.Time(cme1_hmi_start, cme1_hmi_end), a.Instrument('HMI'))
+hmi_cme2_query = Fido.search(a.Time(cme2_hmi_start, cme2_hmi_end), a.Instrument('HMI'))
 
 # Print out the query results for LASCO
 print("LASCO CME1 Query Results:")
-print(lasco_cme1_query)  # Display the results of the query
+print(lasco_cme1_query)
 # Uncomment the following line to fetch the data
 # Fido.fetch(lasco_cme1_query)
 
 print("\nLASCO CME2 Query Results:")
-print(lasco_cme2_query)  # Display the results of the query
+print(lasco_cme2_query)
 # Uncomment the following line to fetch the data
 # Fido.fetch(lasco_cme2_query)
 
 # Print out the query results for SECCHI
 print("\nSECCHI CME1 Query Results:")
-print(secchi_cme1_query)  # Display the results of the query
-# Note: Only 2 results returned, which may indicate limited data for this time range.
+print(secchi_cme1_query)
 # Uncomment the following line to fetch the data
 # Fido.fetch(secchi_cme1_query)
 
 print("\nSECCHI CME2 Query Results:")
-print(secchi_cme2_query)  # Display the results of the query
-# Note: Only 2 results returned, which may indicate limited data for this time range.
+print(secchi_cme2_query)
 # Uncomment the following line to fetch the data
 # Fido.fetch(secchi_cme2_query)
 
-# Warning: The SECCHI queries returned 0 results. This may be due to the time range being too narrow.
-# Consider using a broader time range for better results.
-# Example of a broader time range: # cme1_secchi_start = datetime(2014, 9, 1, 0, 0)
-# cme1_secchi_end = datetime(2014, 9, 30, 23, 59)
+# Print out the query results for AIA
+print("\nAIA CME1 Query Results:")
+print(aia_cme1_query)
+# Uncomment the following line to fetch the data
+# Fido.fetch(aia_cme1_query)
+
+print("\nAIA CME2 Query Results:")
+print(aia_cme2_query)
+# Uncomment the following line to fetch the data
+# Fido.fetch(aia_cme2_query)
+
+# Print out the query results for HMI
+print("\nHMI CME1 Query Results:")
+print(hmi_cme1_query)
+# Uncomment the following line to fetch the data
+# Fido.fetch(hmi_cme1_query)
+
+print("\nHMI CME2 Query Results:")
+print(hmi_cme2_query)
+# Uncomment the following line to fetch the data
+# Fido.fetch(hmi_cme2_query)
