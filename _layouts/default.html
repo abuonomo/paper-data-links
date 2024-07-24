@@ -10,13 +10,6 @@
   <header>
     <h1><a href="{{ site.baseurl | prepend: site.url }}">{{ site.title }}</a></h1>
     <p>{{ site.description }}</p>
-    <nav>
-      <ul>
-        {% for link in site.navigation %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
   </header>
   <main>
     {{ content }}
