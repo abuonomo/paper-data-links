@@ -12,29 +12,14 @@ time_range_cycle_24 = (datetime.datetime(2009, 1, 1), datetime.datetime(2019, 12
 # Consider using a smaller example time range for testing, such as:
 # time_range_example = (datetime.datetime(2009, 1, 1), datetime.datetime(2009, 1, 7))
 
-# Define the instruments and their respective queries
-# CALLISTO for type II solar radio bursts
-callisto_query_cycle_23 = Fido.search(
-    a.Time(time_range_cycle_23[0], time_range_cycle_23[1]),
-    a.Instrument('CALLISTO'),
-    a.Physobs('Type II solar radio bursts')
-)
-callisto_query_cycle_24 = Fido.search(
-    a.Time(time_range_cycle_24[0], time_range_cycle_24[1]),
-    a.Instrument('CALLISTO'),
-    a.Physobs('Type II solar radio bursts')
-)
-
 # LASCO for coronal mass ejections (CMEs)
 lasco_query_cycle_23 = Fido.search(
     a.Time(time_range_cycle_23[0], time_range_cycle_23[1]),
     a.Instrument('LASCO'),
-    a.Physobs('Coronal mass ejections')
 )
 lasco_query_cycle_24 = Fido.search(
     a.Time(time_range_cycle_24[0], time_range_cycle_24[1]),
     a.Instrument('LASCO'),
-    a.Physobs('Coronal mass ejections')
 )
 
 # SECCHI for coronal mass ejections (CMEs)
@@ -42,19 +27,7 @@ lasco_query_cycle_24 = Fido.search(
 secchi_query_cycle_24 = Fido.search(
     a.Time(time_range_cycle_24[0], time_range_cycle_24[1]),
     a.Detector('COR1'),  # Correcting to use COR1 as a detector
-    a.Physobs('Coronal mass ejections')
 )
-
-# Print out the query results for each instrument and time range
-print("CALLISTO Query Results for Cycle 23:")
-print(callisto_query_cycle_23)  # Results may be empty if the time range is too broad
-# Uncomment the following line to fetch the data
-# Fido.fetch(callisto_query_cycle_23)
-
-print("\nCALLISTO Query Results for Cycle 24:")
-print(callisto_query_cycle_24)  # Results may be empty if the time range is too broad
-# Uncomment the following line to fetch the data
-# Fido.fetch(callisto_query_cycle_24)
 
 print("\nLASCO Query Results for Cycle 23:")
 print(lasco_query_cycle_23)  # Results may be empty if the time range is too broad
