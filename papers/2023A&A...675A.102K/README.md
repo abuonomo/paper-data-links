@@ -13,8 +13,8 @@ This repository contains files that have been generated to aid in the understand
 - Atmospheric Imaging Assembly (AIA)
 
 ## Usage
-1. **Download Script**: Run the `download_script.py` to fetch data related to the paper. Ensure you have all the necessary dependencies, including SunPy, installed. This script is designed to retrieve data specifically from the VSO. Please note that this script represents a starting point and may not be 100% perfect. Users are encouraged to review and modify it as needed.
-2. **Instrument Information**: Check `INSTRUMENT_DETAILS.md` for comprehensive information on the instruments used. This can provide context and help in understanding the data fetched by the script.
+1. **Download Script**: Run the [download_script.py](download_script.py) to fetch data related to the paper. Ensure you have all the necessary dependencies, including SunPy, installed. This script is designed to retrieve data specifically from the VSO. Please note that this script represents a starting point and may not be 100% perfect. Users are encouraged to review and modify it as needed.
+2. **Instrument Information**: Check [INSTRUMENT_DETAILS.md](INSTRUMENT_DETAILS.md) for comprehensive information on the instruments used. This can provide context and help in understanding the data fetched by the script.
 
 ## Contributions and Contact
 For any further details or contributions, please refer to our [Contributing Guide](https://github.com/abuonomo/paper-data-links/blob/main/CONTRIBUTING.md).
