@@ -4,13 +4,12 @@
 from sunpy.net import Fido, attrs as a
 import datetime
 
+# WARNING: The time ranges defined here may be too broad for the VSO to return complete results.
+# Consider using a smaller example time range for testing.
+
 # Define the time ranges for the observations
 time_range_cycle_23 = (datetime.datetime(1996, 8, 1), datetime.datetime(2001, 11, 30))  # Example time range
 time_range_cycle_24 = (datetime.datetime(2008, 12, 1), datetime.datetime(2014, 4, 30))  # Example time range
-
-# WARNING: The time ranges defined above may be too broad for the VSO to return results.
-# Consider using a smaller example time range for testing, such as:
-# time_range_example = (datetime.datetime(2009, 1, 1), datetime.datetime(2009, 1, 7))
 
 # LASCO for coronal mass ejections (CMEs)
 lasco_query_cycle_23 = Fido.search(
