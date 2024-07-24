@@ -2,3 +2,9 @@ title: Solar Research Papers
 description: Repository for papers and associated data
 theme: minima
 
+navigation:
+  - title: Home
+    url: /
+  - title: Contributing Guide
+    url: /CONTRIBUTING.md
+
