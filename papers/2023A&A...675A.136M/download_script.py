@@ -3,6 +3,7 @@
 # Import necessary libraries from SunPy
 from sunpy.net import Fido, attrs as a
 from datetime import datetime
+import astropy.units as u
 
 # Define the time ranges for the observations of CMEs
 # Time range for CME1 observed by LASCO
@@ -46,8 +47,8 @@ secchi_cme1_query = Fido.search(a.Time(cme1_secchi_start, cme1_secchi_end), a.De
 secchi_cme2_query = Fido.search(a.Time(cme2_secchi_start, cme2_secchi_end), a.Detector('COR2'))
 
 # Create queries for AIA observations
-aia_cme1_query = Fido.search(a.Time(cme1_aia_start, cme1_aia_end), a.Instrument('AIA'), a.Wavelength(131, 'angstrom'))
-aia_cme2_query = Fido.search(a.Time(cme2_aia_start, cme2_aia_end), a.Instrument('AIA'), a.Wavelength(131, 'angstrom'))
+aia_cme1_query = Fido.search(a.Time(cme1_aia_start, cme1_aia_end), a.Instrument('AIA'), a.Wavelength(131 * u.angstrom))
+aia_cme2_query = Fido.search(a.Time(cme2_aia_start, cme2_aia_end), a.Instrument('AIA'), a.Wavelength(131 * u.angstrom))
 
 # Create queries for HMI observations
 hmi_cme1_query = Fido.search(a.Time(cme1_hmi_start, cme1_hmi_end), a.Instrument('HMI'))
