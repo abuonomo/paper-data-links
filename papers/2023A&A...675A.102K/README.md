@@ -9,8 +9,7 @@ This repository contains files that have been generated to aid in the understand
 
 ### VSO Instruments Used
 - The Large Angle Spectroscopic Coronagraph (LASCO)
-- Helioseismic and Magnetic Imager (HMI)
-- Atmospheric Imaging Assembly (AIA)
+- Sun Earth Connection Coronal and Heliospheric Investigation (SECCHI)
 
 ## Usage
 1. **Download Script**: Run the [download_script.py](download_script.py) to fetch data related to the paper. Ensure you have all the necessary dependencies, including SunPy, installed. This script is designed to retrieve data specifically from the VSO. Please note that this script represents a starting point and may not be 100% perfect. Users are encouraged to review and modify it as needed.
