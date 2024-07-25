@@ -1,13 +1,9 @@
 ---
 layout: default
-title: VSO Instrument Data Links
+title: Papers
 ---
 
-# Welcome to VSO Instrument Data Links
-
-This repository stores information about the VSO instruments used in scientific papers.
-
-## Recent Papers
+# Papers
 
 {% for paper in site.pages %}
   {% if paper.path contains 'papers/' and paper.name == 'README.md' %}
