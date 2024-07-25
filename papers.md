@@ -1,12 +1,15 @@
 ---
 layout: default
-title: Papers
+title: All Papers
 ---
 
-# Papers
+# All Papers
 
-{% for paper in site.pages %}
+<div class="paper-list">
+{% assign sorted_pages = site.pages | sort: 'path' | reverse %}
+{% for paper in sorted_pages %}
   {% if paper.path contains 'papers/' and paper.name == 'README.md' %}
-    - [{{ paper.title }}]({{ paper.url | relative_url }})
+    <a href="{{ paper.url | relative_url }}" class="paper-button">{{ paper.bibcode }}</a>
   {% endif %}
 {% endfor %}
+</div>

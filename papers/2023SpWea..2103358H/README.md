@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+bibcode: "2023A&A...675A..27J"
 ---
 
 # Solar Research Papers

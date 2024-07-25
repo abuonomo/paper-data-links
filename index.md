@@ -9,8 +9,13 @@ This repository stores information about the VSO instruments used in scientific 
 
 ## Recent Papers
 
-{% for paper in site.pages %}
+<div class="paper-list">
+{% assign sorted_pages = site.pages | sort: 'path' | reverse %}
+{% for paper in sorted_pages limit:10 %}
   {% if paper.path contains 'papers/' and paper.name == 'README.md' %}
-    - [{{ paper.title }}]({{ paper.url | relative_url }})
+    <a href="{{ paper.url | relative_url }}" class="paper-button">{{ paper.bibcode }}</a>
   {% endif %}
 {% endfor %}
+</div>
+
+[View All Papers]({{ '/papers.html' | relative_url }})

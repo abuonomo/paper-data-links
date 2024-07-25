@@ -1,0 +1,38 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.wrapper {
+  width: 1060px;
+}
+
+header {
+  width: 200px;
+}
+
+section {
+  width: 800px;
+}
+
+.paper-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.paper-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-family: monospace;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
