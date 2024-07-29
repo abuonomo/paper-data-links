@@ -1,3 +1,6 @@
 title: VSO Instrument Data Links
 description: Information about VSO instruments used in scientific papers
 theme: jekyll-theme-minimal
+include:
+  - "*.json"
+  - CONTRIBUTING.md

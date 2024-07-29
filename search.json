@@ -1,0 +1,16 @@
+---
+layout: null
+---
+[
+  {% for paper in site.pages %}
+    {% if paper.path contains 'papers/' and paper.name == 'README.md' %}
+    {
+      "title"    : "{{ paper.title | escape }}",
+      "bibcode"  : "{{ paper.bibcode | escape }}",
+      "url"      : "{{ site.baseurl }}{{ paper.url }}",
+      "content"  : {{ paper.content | strip_html | strip_newlines | jsonify }}
+    }
+    {% unless forloop.last %},{% endunless %}
+    {% endif %}
+  {% endfor %}
+]

@@ -1,3 +1,8 @@
+---
+layout: default
+title: Contributing
+---
+
 # Contributing to Paper Data Links
 
 We welcome contributions to Paper Data Links! Here are some guidelines to help you get started.
