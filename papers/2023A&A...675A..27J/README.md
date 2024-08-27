@@ -25,9 +25,7 @@ vso_source_keys:
   SDO: "Solar Dynamics Observatory"
 vso_instrument_keys:
   IMPACT: "In-situ Measurements of Particles and CME Transients"
-  SEPT: "Solar Electron Proton Telescope"
   SWAVES: "STEREO/WAVES"
   AIA: "Atmospheric Imaging Assembly"
   LASCO: "Large Angle and Spectrometric Coronagraph"
-  GOES: "Geostationary Operational Environmental Satellite"
 ---
