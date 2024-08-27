@@ -15,5 +15,4 @@ vso_source_keys:
 vso_instrument_keys:
   AIA: "Atmospheric Imaging Assembly"
   SECCHI: "Sun Earth Connection Coronal and Heliospheric Investigation"
-  EUVI: "Extreme Ultraviolet Imager"
 ---
