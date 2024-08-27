@@ -2,12 +2,36 @@
 layout: default
 ---
 <h1>{{ page.title }}</h1>
-<p>Bibcode: {{ page.bibcode }}</p>
-{{ content }}
-<h2>Paper Details</h2>
+
+<p><strong>bibcode:</strong> {{ page.bibcode }}</p>
+<p><strong>Authors:</strong> {{ page.authors | join: ", " }}</p>
+<p><a href="https://ui.adsabs.harvard.edu/abs/{{ page.bibcode }}">View on ADS</a></p>
+
+<h2>About</h2>
+<p>This repository contains files that have been generated to aid in the understanding and analysis of the paper. The download script included here is specifically designed to retrieve data from the <a href="https://sdac.virtualsolar.org/cgi/search">Virtual Solar Observatory (VSO)</a>.</p>
+
+<h2>VSO Instruments Used</h2>
+<h3>Sources</h3>
 <ul>
-  <li><a href="INSTRUMENT_DETAILS.html">Instrument Details</a></li>
-  <li><a href="RATIONALE.html">Rationale</a></li>
-  <li><a href="SCRIPT_WITH_COMMENTARY.html">Script with Commentary</a></li>
-  <li><a href="download_script.py">Download Script</a></li>
+{% for source in page.vso_source_keys %}
+  <li><strong>{{ source[0] }}</strong>: {{ source[1] }}</li>
+{% endfor %}
 </ul>
+
+<h3>Instruments</h3>
+<ul>
+{% for instrument in page.vso_instrument_keys %}
+  <li><strong>{{ instrument[0] }}</strong>: {{ instrument[1] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Usage</h2>
+<ol>
+  <li><strong>Python Data Download Script:</strong> Run the <a href="{{ site.github_repo_url }}/papers/{{ page.bibcode }}/download_script.py">download_script.py</a> to fetch data related to the paper. Ensure you have all the necessary dependencies, including SunPy, installed. This script is designed to retrieve data specifically from the VSO. Please note that this script represents a starting point and may not be 100% perfect. Users are encouraged to review and modify it as needed.</li>
+  <li><strong>Instrument Information:</strong> Check <a href="{{ site.github_repo_url }}/papers/{{ page.bibcode }}/INSTRUMENT_DETAILS.md">INSTRUMENT_DETAILS.md</a> for comprehensive information on the instruments used. This can provide context and help in understanding the data fetched by the script.</li></ol>
+
+<h2>Contributions and Contact</h2>
+<!--<p>For any further details or contributions, please refer to our <a href="https://github.com/abuonomo/paper-data-links-dev/blob/main/CONTRIBUTING.md">Contributing Guide</a>.</p>-->
+<p>For any further details or contributions, please refer to our <a href="{{ site.github_repo_url }}/CONTRIBUTING.md">Contributing Guide</a>.</p>
+
+<p>If you encounter any problems or have suggestions for improvements, please <a href="{{ site.github_repo_url | replace: '/blob/main', '' }}/issues/new?title=Issue+for+{{ paper.bibcode | url_encode }}&body=Describe+the+issue+here.+Paper+bibcode:+{{ paper.bibcode }}">submit an issue on GitHub</a> or make a pull request to correct anything you think is wrong.</p>
