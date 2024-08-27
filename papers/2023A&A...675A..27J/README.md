@@ -1,28 +1,33 @@
 ---
-layout: default
-title: Home
+layout: paper
+title: "Multiple injections of energetic electrons associated with the flare and CME event on 9 October 2021"
 bibcode: "2023A&A...675A..27J"
+authors: 
+  - "Jebaraj, Immanuel C."
+  - "Kouloumvakos, A."
+  - "Dresing, N."
+  - "Warmuth, A."
+  - "Wijsen, N."
+  - "Palmroos, C."
+  - "Gieseler, J."
+  - "Marmyleva, A."
+  - "Vainio, R."
+  - "Krupar, V."
+  - "Wiegelmann, T."
+  - "Magdalenic, J."
+  - "Schuller, F."
+  - "Battaglia, A. F."
+  - "Fedeli, A."
+vso_source_keys:
+  SO: "Solar Orbiter"
+  SOHO: "Solar and Heliospheric Observatory"
+  STEREO_A: "Solar TErrestrial RElations Observatory - Ahead"
+  SDO: "Solar Dynamics Observatory"
+vso_instrument_keys:
+  IMPACT: "In-situ Measurements of Particles and CME Transients"
+  SEPT: "Solar Electron Proton Telescope"
+  SWAVES: "STEREO/WAVES"
+  AIA: "Atmospheric Imaging Assembly"
+  LASCO: "Large Angle and Spectrometric Coronagraph"
+  GOES: "Geostationary Operational Environmental Satellite"
 ---
-**bibcode**: 2022ApJ...927..100S
-# Type II Radio Bursts and Their Association with Coronal Mass Ejections in Solar Cycles 23 and 24
-**Authors:** A. Solar, B. Dynamics, C. Evolution  
-[View on ADS](https://ui.adsabs.harvard.edu/abs/2023A&A...675A..27J)
-
-## About
-This repository contains files that have been generated to aid in the understanding and analysis of the paper. The download script included here is specifically designed to retrieve data from the [Virtual Solar Observatory (VSO)](https://sdac.virtualsolar.org/cgi/search).
-
-## VSO Instruments Used
-- <span style="font-size: 1.2em;">[The Large Angle Spectroscopic Coronagraph (LASCO)](https://github.com/abuonomo/paper-data-links/blob/b222d2a1aadeb7e17b302abcfa918073b7793211/papers/2023A%26A...675A..27J/download_script.py#L32C1-L32C41)</span>
-- <span style="font-size: 1.2em;">Helioseismic and Magnetic Imager (HMI)</span>
-- <span style="font-size: 1.2em;">[Atmospheric Imaging Assembly (AIA)](https://github.com/abuonomo/paper-data-links/blob/b222d2a1aadeb7e17b302abcfa918073b7793211/papers/2023A%26A...675A..27J/download_script.py#L27)</span>
-
-## Usage
-1. **[Python Data Download Script](https://github.com/abuonomo/paper-data-links/blob/main/papers/2023A%26A...675A..27J/download_script.py)**: Run the [download_script.py](https://github.com/abuonomo/paper-data-links/blob/main/papers/2023A%26A...675A..27J/download_script.py) to fetch data related to the paper. Ensure you have all the necessary dependencies, including SunPy, installed. This script is designed to retrieve data specifically from the VSO. Please note that this script represents a starting point and may not be 100% perfect. Users are encouraged to review and modify it as needed.
-2. **Instrument Information**: Check [INSTRUMENT_DETAILS.md](https://github.com/abuonomo/paper-data-links/blob/main/papers/2023A%26A...675A..27J/INSTRUMENT_DETAILS.md) for comprehensive information on the instruments used. This can provide context and help in understanding the data fetched by the script.
-
-## Contributions and Contact
-For any further details or contributions, please refer to our [Contributing Guide](https://github.com/abuonomo/paper-data-links/blob/main/CONTRIBUTING.md).
-
-If you encounter any problems or have suggestions for improvements, please [submit an issue on GitHub](https://github.com/abuonomo/paper-data-links/issues/new?title=Issue+Title&body=This+is+the+body+of+the+issue.%0A%0AAdd+any+details+here.
-) or make a pull request to correct anything you think is wrong.
-
