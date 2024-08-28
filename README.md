@@ -1,4 +1,4 @@
-THIS REPO IS DEPRECATED! GO TO [HDRLHUB](https://github.com/HDRLHub/paper-data-links) FOR THE PRODUCTION REPOSITORY.
+# THIS REPO IS DEPRECATED! GO TO [HDRLHUB](https://github.com/HDRLHub/paper-data-links) FOR THE PRODUCTION REPOSITORY.
 
 # Paper Data Links
 
